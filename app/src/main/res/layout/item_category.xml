@@ -23,6 +23,6 @@
         android:layout_gravity="center_vertical"
         android:src = "@drawable/play_icon"
         android:paddingRight="10dp"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="10dp" />
 
 </LinearLayout>
