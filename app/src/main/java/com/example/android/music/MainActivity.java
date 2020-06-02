@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
 
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         tabLayout.addTab(tabLayout.newTab().setText("ROMANTIC"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
+
         //Initializing viewPager
         viewPager = (ViewPager) findViewById(R.id.pager);
 
@@ -60,7 +63,21 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         //Adding adapter to pager
         viewPager.setAdapter(adapter);
 
-        //Adding onTabSelectedListener to swipe views
-        tabLayout.setOnTabSelectedListener(this);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 }

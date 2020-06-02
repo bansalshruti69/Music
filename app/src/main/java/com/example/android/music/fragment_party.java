@@ -107,8 +107,8 @@ public class fragment_party extends Fragment {
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    public void onDestroy() {
+        super.onDestroy();
         releaseMediaPlayer();
     }
 
